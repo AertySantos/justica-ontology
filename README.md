@@ -1,7 +1,7 @@
 # Ontologia de Sentenças Judiciais
 
 ## Definição do Escopo
-A ontologia proposta visa estruturar e padronizar o conhecimento relacionado às sentenças judiciais em casos de roubo, roubo majorado, furto e furto qualificado no contexto do Tribunal de Justiça do Estado de São Paulo (TJSP).
+A ontologia proposta visa estruturar e padronizar o conhecimento relacionado às sentenças judiciais em casos de roubo, roubo majorado, furto e furto qualificado no contexto do Tribunal de Justiça.
 
 Ela abrangerá conceitos como:
 - **Tipificação penal**: Classificação dos crimes conforme o Código Penal Brasileiro.
