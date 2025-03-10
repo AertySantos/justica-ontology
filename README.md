@@ -24,7 +24,7 @@ A ontologia deve ser capaz de responder a questões como:
 2. Qual o tempo de pena aplicado em cada caso?
 3. Quais são os elementos considerados em uma condenação por furto qualificado?
 4. Como os juízes fundamentam a aplicação de agravantes em casos de roubo majorado?
-5. Existe diferença na dosimetria da pena entre as diferentes câmaras criminais do TJSP?
+5. Existe diferença na dosimetria da pena entre as diferentes câmaras criminais?
 6. Quais jurisprudências influenciam decisões sobre furto e roubo?
 
 ## Fontes em Potencial
