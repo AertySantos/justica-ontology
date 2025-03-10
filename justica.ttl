@@ -1,0 +1,346 @@
+@prefix : <http://purl.org/AertySantos/justica-ontologia/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.org/AertySantos/justica-ontologia/> .
+
+<http://purl.org/AertySantos/justica-ontologia> rdf:type owl:Ontology ;
+                                                 rdfs:comment "justica-ontologia"@pt-br .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/AertySantos/justica-ontologia/TemParte
+:TemParte rdf:type owl:ObjectProperty ;
+          rdfs:domain :ProcessoJudicial ;
+          rdfs:range :PartesProcesso ;
+          rdfs:comment "Indica as partes envolvidas em um processo judicial."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/apresentaFundamentacao
+:apresentaFundamentacao rdf:type owl:ObjectProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain :DecisaoJudicial ;
+                        rdfs:range :Fundamentacao ;
+                        rdfs:comment "Relaciona uma decisão judicial à sua fundamentação legal."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/consideraFatores
+:consideraFatores rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Dosimetria ;
+                  rdfs:range :Agravante ,
+                             :Atenuante ;
+                  rdfs:comment "Especifica os fatores levados em conta na decisão judicial."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/defineDosimetria
+:defineDosimetria rdf:type owl:ObjectProperty ;
+                  rdfs:domain :DecisaoJudicial ;
+                  rdfs:range :Dosimetria ;
+                  rdfs:comment "Relaciona uma decisão à dosimetria da pena aplicada."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/envolvePartes
+:envolvePartes rdf:type owl:ObjectProperty ;
+               rdfs:domain :ProcessoJudicial ;
+               rdfs:range :PartesProcesso ;
+               rdfs:comment "Especifica as partes impactadas por um processo judicial."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/impactaPartes
+:impactaPartes rdf:type owl:ObjectProperty ;
+               rdfs:domain :SentencaJudicial ;
+               rdfs:range :PartesProcesso ;
+               rdfs:comment "Indica o impacto de uma decisão nas partes envolvidas."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/inclui
+:inclui rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :TemParte ;
+        rdfs:domain :PartesProcesso ;
+        rdfs:range :Acusado ,
+                   :Testemunha ,
+                   :Vitima ;
+        rdfs:comment "Relaciona as partes envolvidas no processo judicial, incluindo testemunha, acusado e vítima."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/incluiProvas
+:incluiProvas rdf:type owl:ObjectProperty ;
+              rdfs:domain :ProcessoJudicial ;
+              rdfs:range :DecisaoJudicial ;
+              rdfs:comment "Relaciona um processo judicial às provas anexadas para fundamentação da decisão."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/originaDecisao
+:originaDecisao rdf:type owl:ObjectProperty ;
+                rdfs:domain :ProcessoJudicial ;
+                rdfs:range :DecisaoJudicial ;
+                rdfs:comment "Vincula um processo judicial à decisão resultante."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/registraSentenca
+:registraSentenca rdf:type owl:ObjectProperty ;
+                  rdfs:domain :DecisaoJudicial ;
+                  rdfs:range :SentencaJudicial ;
+                  rdfs:comment "Indica o registro formal de uma sentença dentro de um processo judicial."@pt-br .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/AertySantos/justica-ontologia/OrigemDeProva
+:origemDeProva rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Prova ;
+               rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/artigo
+:artigo rdf:type owl:DatatypeProperty ;
+        rdfs:domain :SentencaJudicial ;
+        rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/assunto
+:assunto rdf:type owl:DatatypeProperty ;
+         rdfs:domain :ProcessoJudicial ;
+         rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/classe
+:classe rdf:type owl:DatatypeProperty ;
+        rdfs:domain :ProcessoJudicial ;
+        rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/comarca
+:comarca rdf:type owl:DatatypeProperty ;
+         rdfs:domain :ProcessoJudicial ;
+         rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/conteudoDaSentenca
+:conteudoDaSentenca rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :SentencaJudicial ;
+                    rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/dataDePublicacao
+:dataDePublicacao rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :ProcessoJudicial ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/foro
+:foro rdf:type owl:DatatypeProperty ;
+      rdfs:domain :ProcessoJudicial ;
+      rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/juizProlator
+:juizProlator rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :SentencaJudicial ;
+              rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/numeroProcesso
+:numeroProcesso rdf:type owl:DatatypeProperty ;
+                rdfs:domain :ProcessoJudicial ;
+                rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/penaBase
+:penaBase rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :SentencaJudicial ;
+          rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/penaFinal
+:penaFinal rdf:type owl:DatatypeProperty ;
+           rdfs:domain :SentencaJudicial ;
+           rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temDataColeta
+:dataColeta rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Prova ;
+               rdfs:range xsd:dateTime .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temDataDecisao
+:dataDecisao rdf:type owl:DatatypeProperty ;
+                rdfs:domain :DecisaoJudicial ;
+                rdfs:range xsd:dateTime .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temDescricao
+:descricao rdf:type owl:DatatypeProperty ;
+              rdfs:domain :DecisaoJudicial ;
+              rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temMulta
+:multa rdf:type owl:DatatypeProperty ;
+          rdfs:domain :SentencaJudicial ;
+          rdfs:range xsd:decimal .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temNomeAcusado
+:nomeAcusado rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Acusado ;
+                rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temNumeroProcesso
+:numeroProcesso rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ProcessoJudicial ;
+                   rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temRegimeInicial
+:regimeInicial rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :RegimeInicial ;
+                  rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/tipoDeProva
+:tipoDeProva rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Prova ;
+             rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/vara
+:vara rdf:type owl:DatatypeProperty ;
+      rdfs:domain :ProcessoJudicial ;
+      rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/AertySantos/justica-ontologia/Acusado
+:Acusado rdf:type owl:Class ;
+         rdfs:subClassOf :PartesProcesso ;
+         rdfs:comment "O Acusado é uma pessoa que faz parte das ParteProcesso e é aquele que responde pela infração ou delito."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Agravante
+:Agravante rdf:type owl:Class ;
+           rdfs:subClassOf :Dosimetria ;
+           rdfs:comment "Um agravante é uma circunstância que contribui para o aumento da pena na fase de dosimetria."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Argumentacao
+:Argumentacao rdf:type owl:Class ;
+              rdfs:subClassOf :Fundamentacao ;
+              rdfs:comment "A argumentação é a explicação usada para apoiar a fundamentação."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Atenuante
+:Atenuante rdf:type owl:Class ;
+           rdfs:subClassOf :Dosimetria ;
+           rdfs:comment "Uma atenuante é uma circunstância que contribui para a diminuição da pena na fase de dosimetria."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/CodigoPenal
+:CodigoPenal rdf:type owl:Class ;
+             rdfs:subClassOf :Fundamentacao ;
+             rdfs:comment "O Código Penal é a lei que orienta a fundamentação."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/DecisaoJudicial
+:DecisaoJudicial rdf:type owl:Class ;
+                 rdfs:comment "Refere-se à decisão tomada por um juiz ou tribunal com base nas provas e fundamentações do processo."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Dosimetria
+:Dosimetria rdf:type owl:Class ;
+            rdfs:comment "A dosimetria é o equilíbrio entre excesso e deficiência na aplicação da pena, buscando a justa medida que proporcione justiça ao caso concreto, conforme os princípios da equidade e da proporcionalidade."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Fundamentacao
+:Fundamentacao rdf:type owl:Class ;
+               rdfs:subClassOf :DecisaoJudicial ;
+               rdfs:comment "A fundamentação representa as bases legais e jurídicas utilizadas para embasar decisões judiciais."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Jurisprudencia
+:Jurisprudencia rdf:type owl:Class ;
+                rdfs:subClassOf :Fundamentacao ;
+                rdfs:comment "A jurisprudência são as decisões anteriores que servem de base para a fundamentação."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/PartesProcesso
+:PartesProcesso rdf:type owl:Class ;
+                rdfs:comment "Relaciona as partes envolvidas no processo judicial, incluindo testemunha, acusado e vítima."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/ProcessoJudicial
+:ProcessoJudicial rdf:type owl:Class ;
+                  rdfs:comment "Representa um processo judicial, abrangendo todas as etapas e elementos envolvidos no julgamento."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Prova
+:Prova rdf:type owl:Class ;
+       rdfs:subClassOf :DecisaoJudicial ;
+       rdfs:comment "A prova abrange o elemento probatório apresentado em um processo para apoiar uma decisão judicial."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/RegimeInicial
+:RegimeInicial rdf:type owl:Class ;
+               rdfs:subClassOf :DecisaoJudicial ;
+               rdfs:comment "O regime inicial define a forma de cumprimento da pena estabelecida no início da execução da decisão judicial."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/SentencaJudicial
+:SentencaJudicial rdf:type owl:Class ;
+                  rdfs:comment "Representa a sentença final proferida pelo juiz ao término do julgamento."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Testemunha
+:Testemunha rdf:type owl:Class ;
+            rdfs:subClassOf :PartesProcesso ;
+            rdfs:comment "A Testemunha é uma pessoa que faz parte das ParteProcesso e pode fornecer depoimentos ou evidências sobre o caso."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/TipoDeDecisao
+:TipoDeDecisao rdf:type owl:Class ;
+               rdfs:subClassOf :DecisaoJudicial ;
+               rdfs:comment "O tipo de decisão refere-se à classificação ou natureza da decisão judicial tomada em um processo judicial, como condenatória, absolutória, ou outra."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/TipoFundamentacao
+:TipoFundamentacao rdf:type owl:Class ;
+                   rdfs:subClassOf :Fundamentacao ;
+                   rdfs:comment "O tipo de fundamentação são as regras que definem como a fundamentação deve ser feita."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/TipoSentenca
+:TipoSentenca rdf:type owl:Class ;
+              rdfs:subClassOf :SentencaJudicial ;
+              rdfs:comment "Tipo de sentença refere-se à classificação da sentença judicial de acordo com sua natureza e efeito, podendo indicar se a decisão é condenatória, absolutória, cautelar, de mérito ou outras classificações, conforme o resultado do julgamento."@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Vitima
+:Vitima rdf:type owl:Class ;
+        rdfs:subClassOf :PartesProcesso ;
+        rdfs:comment "A Vítima é uma pessoa que faz parte das ParteProcesso e é aquela que sofreu o dano ou a infração."@pt-br .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/AertySantos/justica-ontologia/fulano
+:fulano rdf:type owl:NamedIndividual ,
+                 :Acusado .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
