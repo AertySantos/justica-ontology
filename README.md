@@ -40,3 +40,4 @@ A ontologia será desenvolvida seguindo as melhores práticas recomendadas pela 
 - Documentação detalhada do modelo e suas relações.
 - Exemplos de consulta em SPARQL para extração de informações.
 - Guia de uso para integração com outras aplicações jurídicas.
+- [Visualizar a Ontologia no PyLODE](https://justica-ontology.vercel.app/)
