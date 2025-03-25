@@ -1,0 +1,69 @@
+PREFIX ex: <http://purl.org/AertySantos/justica-ontologia/>
+
+SELECT ?processo ?reu  WHERE {
+    ?processo a ex:ProcessoJudicial ;
+	 ex:originaDecisao ?decisao .
+         
+    ?decisao a ex:DecisaoJudicial ;  
+                   ex:TemParte ?partes .
+
+    ?partes a ex:PartesProcesso ;
+                   ex:incluiReu ?reu .
+                   
+}
+
+PREFIX ex: <http://purl.org/AertySantos/justica-ontologia/>
+
+SELECT ?processo ?reu  ?resultado WHERE {
+    ?processo a ex:ProcessoJudicial ;
+	 ex:originaDecisao ?decisao .
+         
+    ?decisao a ex:DecisaoJudicial ;  
+	 ex:registraSentenca ?sentenca ;
+                   ex:TemParte ?partes .
+
+    ?sentenca a ex:SentencaJudicial ;
+              ex:temResultado ?resultado .
+
+    ?partes a ex:PartesProcesso ;
+                   ex:incluiReu ?reu .
+                   
+}
+
+SELECT ?processo ?reu  ?agravante ?atenuante WHERE {
+    ?processo a ex:ProcessoJudicial ;
+	 ex:originaDecisao ?decisao .
+         
+    ?decisao a ex:DecisaoJudicial ;  
+	 ex:orientaDecisao ?dosimetria ;
+                   ex:TemParte ?partes .
+
+     ?dosimetria a ex:Dosimetria ;
+              ex:consideraAgravante ?agravante1 ;
+              ex:consideraAtenuante ?atenuante1 .
+  
+    ?agravante1 ex:descricaoAgravante ?agravante .
+    ?atenuante1 ex:descricaoAtenuante ?atenuante .
+
+    ?partes a ex:PartesProcesso ;
+                   ex:incluiReu ?reu .
+                   
+}
+
+SELECT ?processo ?reu  ?artigo WHERE {
+    ?processo a ex:ProcessoJudicial ;
+	 ex:originaDecisao ?decisao .
+         
+    ?decisao a ex:DecisaoJudicial ;  
+	 ex:apresentaFundamentacao ?fund ;
+                   ex:TemParte ?partes .
+
+     ?fund a ex:Fundamentacao ;      
+              ex:temCodigoPenal ?artigo .
+  
+    ?partes a ex:PartesProcesso ;
+                   ex:incluiReu ?reu .
+                   
+}
+
+
