@@ -16,7 +16,7 @@
 
 ###  http://purl.org/AertySantos/justica-ontologia/TemParte
 :TemParte rdf:type owl:ObjectProperty ;
-          rdfs:domain :ProcessoJudicial ;
+          rdfs:domain :DecisaoJudicial ;
           rdfs:range :PartesProcesso ;
           rdfs:comment "Indica as partes envolvidas em um processo judicial."@pt-br ;
           rdfs:label "Parte envolvida"@pt-br .
@@ -55,14 +55,6 @@
               rdfs:label "Envolve parte"@pt-br .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/impactaParte
-:impactaParte rdf:type owl:ObjectProperty ;
-              rdfs:domain :SentencaJudicial ;
-              rdfs:range :PartesProcesso ;
-              rdfs:comment "Indica o impacto de uma decisão nas partes envolvidas."@pt-br ;
-              rdfs:label "Impacta parte"@pt-br .
-
-
 ###  http://purl.org/AertySantos/justica-ontologia/incluiLesado
 :incluiLesado rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :TemParte ;
@@ -72,12 +64,12 @@
               rdfs:label "Inclui Lesado"@pt-br .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/incluiProvas
-:incluiProvas rdf:type owl:ObjectProperty ;
-              rdfs:domain :ProcessoJudicial ;
-              rdfs:range :Prova ;
-              rdfs:comment "Relaciona um processo judicial às provas anexadas para fundamentação da decisão."@pt-br ;
-              rdfs:label "Inclui prova"@pt-br .
+###  http://purl.org/AertySantos/justica-ontologia/incluiProva
+:incluiProva rdf:type owl:ObjectProperty ;
+             rdfs:domain :DecisaoJudicial ;
+             rdfs:range :Prova ;
+             rdfs:comment "Relaciona todas as provas de um determinado processo" ;
+             rdfs:label "Adiciona prova"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/incluiReu
@@ -101,8 +93,10 @@
 ###  http://purl.org/AertySantos/justica-ontologia/orientaDecisao
 :orientaDecisao rdf:type owl:ObjectProperty ,
                          owl:InverseFunctionalProperty ;
-                rdfs:domain :ProcessoJudicial ;
-                rdfs:range :Dosimetria .
+                rdfs:domain :DecisaoJudicial ;
+                rdfs:range :Dosimetria ;
+                rdfs:comment "relaciona a dosimetria com a decisão judicial" ;
+                rdfs:label "Orienta Decisão"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/originaDecisao
@@ -119,6 +113,60 @@
                   rdfs:range :SentencaJudicial ;
                   rdfs:comment "Indica o registro formal de uma sentença dentro de um processo judicial."@pt-br ;
                   rdfs:label "Registra sentença"@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temArgumentacao
+:temArgumentacao rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Fundamentacao ;
+                 rdfs:range :Argumentacao ;
+                 rdfs:comment "relaciona a agumentação com a fundamentação" ;
+                 rdfs:label "Tem argumentação"@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temCodigoPenal
+:temCodigoPenal rdf:type owl:ObjectProperty ;
+                rdfs:domain :Fundamentacao ;
+                rdfs:range :CodigoPenal ;
+                rdfs:comment "relaciona a fundamentação com o artigo do código penal" ;
+                rdfs:label "Tem Código penal"@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temDefensoria
+:temDefensoria rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Argumentacao ;
+               rdfs:range :Defensoria .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temJurisprudencia
+:temJurisprudencia rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Fundamentacao ;
+                   rdfs:range :Jurisprudencia .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temPromotoria
+:temPromotoria rdf:type owl:ObjectProperty ;
+               rdfs:domain :Argumentacao ;
+               rdfs:range :Promotoria .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temRegimeInicial
+:temRegimeInicial rdf:type owl:ObjectProperty ;
+                  rdfs:domain :SentencaJudicial ;
+                  rdfs:range :RegimeInicial .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temResultado
+:temResultado rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :SentencaJudicial ;
+              rdfs:range :TipoSentenca .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temTipoFundamentacao
+:temTipoFundamentacao rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Fundamentacao ;
+                      rdfs:range :TipoFundamentacao .
 
 
 #################################################################
@@ -193,8 +241,45 @@
 ###  http://purl.org/AertySantos/justica-ontologia/descricao
 :descricao rdf:type owl:DatatypeProperty ;
            rdfs:domain :Dosimetria ;
+           rdfs:range xsd:string ;
            rdfs:comment "Descrição detalhada da decisão judicial."@pt-br ;
            rdfs:label "Descrição"@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/descricaoAgravante
+:descricaoAgravante rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Agravante ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Descrição específica do agravante atribuído ao réu" ;
+                    rdfs:label "DescricaoAgravante" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/descricaoAtenuante
+:descricaoAtenuante rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Atenuante ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Descrição específica do atenuante atribuído ao réu" ;
+                    rdfs:label "Descrição do atenuante"@pt-br .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/descricaoDefensoria
+:descricaoDefensoria rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Defensoria ;
+                     rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/descricaoPromotoria
+:descricaoPromotoria rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Promotoria ;
+                     rdfs:range xsd:string .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/descricaoProva
+:descricaoProva rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Prova ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Informações sobre a prova apresentada" ;
+                rdfs:label "Descrição da prova"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/foro
@@ -242,7 +327,8 @@
 ###  http://purl.org/AertySantos/justica-ontologia/nomeTestemunha
 :nomeTestemunha rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Testemunha ;
-                rdfs:range xsd:string .
+                rdfs:range xsd:string ;
+                rdfs:label "Nome da testemunha"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/numeroProcesso
@@ -283,7 +369,7 @@ Origem de Prova"""@pt-br ;
 :tipoDeProva rdf:type owl:DatatypeProperty ;
              rdfs:domain :Prova ;
              rdfs:range xsd:string ;
-             rdfs:label "Tipo de Prova" .
+             rdfs:label "Tipo de Prova"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/vara
@@ -349,6 +435,7 @@ Origem de Prova"""@pt-br ;
 ###  http://purl.org/AertySantos/justica-ontologia/Fundamentacao
 :Fundamentacao rdf:type owl:Class ;
                rdfs:subClassOf :DecisaoJudicial ;
+               owl:disjointWith :Prova ;
                rdfs:comment "A fundamentação representa as bases legais e jurídicas utilizadas para embasar decisões judiciais."@pt-br ;
                rdfs:label "Fundamentação"@pt-br .
 
@@ -406,6 +493,7 @@ Origem de Prova"""@pt-br ;
 ###  http://purl.org/AertySantos/justica-ontologia/RegimeInicial
 :RegimeInicial rdf:type owl:Class ;
                rdfs:subClassOf :SentencaJudicial ;
+               owl:disjointWith :TipoSentenca ;
                rdfs:comment "O regime inicial define a forma de cumprimento da pena estabelecida no início da execução da sentença judicial."@pt-br ;
                rdfs:label "Regime inicial"@pt-br .
 
@@ -447,48 +535,17 @@ Origem de Prova"""@pt-br ;
 #    Individuals
 #################################################################
 
-###  http://purl.org/AertySantos/justica-ontologia#Deduções_Lógicas
-:Deduções_Lógicas rdf:type owl:NamedIndividual ,
-                           :TipoFundamentacao .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#Equidade
-:Equidade rdf:type owl:NamedIndividual ,
-                   :TipoFundamentacao .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#Furto
-:Furto rdf:type owl:NamedIndividual ,
-                [ rdf:type owl:Restriction ;
-                  owl:onProperty :assunto ;
-                  owl:someValuesFrom xsd:string
-                ] .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#Fática
-:Fática rdf:type owl:NamedIndividual ,
-                 :TipoFundamentacao .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#Jurídica
-:Jurídica rdf:type owl:NamedIndividual ,
-                   :TipoFundamentacao .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#MARIANA
-:MARIANA rdf:type owl:NamedIndividual ,
-                  :Réu ;
-         rdfs:comment "MARIANA GROSSI MARTINS PINTO" .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#Precedentes_e_Jurisprudência
-:Precedentes_e_Jurisprudência rdf:type owl:NamedIndividual ,
-                                       :TipoFundamentacao .
-
-
-###  http://purl.org/AertySantos/justica-ontologia#artigo_157
-:artigo_157 rdf:type owl:NamedIndividual ,
-                     :CodigoPenal .
+###  http://purl.org/AertySantos/justica-ontologia#1507286-47.2023.8.26.0228
+<http://purl.org/AertySantos/justica-ontologia#1507286-47.2023.8.26.0228> rdf:type owl:NamedIndividual ,
+                                                                                   :ProcessoJudicial ;
+                                                                          :originaDecisao :decisao_03 ,
+                                                                                          :decisao_04 ;
+                                                                          :assunto "Furto Qualificado" ;
+                                                                          :classe "Ação Penal - Procedimento Ordinário" ;
+                                                                          :comarca "São Paulo" ;
+                                                                          :dataDePublicacao "2023-05-05T00:00:00"^^xsd:dateTime ;
+                                                                          :foro "Foro Central Criminal Barra Funda" ;
+                                                                          :vara "8ª Vara Criminal" .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Absolvição
@@ -496,15 +553,44 @@ Origem de Prova"""@pt-br ;
                      :TipoSentenca .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/Boletim_de_ocorrência
-:Boletim_de_ocorrência rdf:type owl:NamedIndividual ,
-                                :Prova ;
-                       rdfs:comment "Boletim de ocorrência" .
+###  http://purl.org/AertySantos/justica-ontologia/Adyones
+:Adyones rdf:type owl:NamedIndividual ;
+         rdfs:comment "Adyones Porto Freire" .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/Depoimentos
-:Depoimentos rdf:type owl:NamedIndividual ,
-                      :Prova .
+###  http://purl.org/AertySantos/justica-ontologia/Bruno
+:Bruno rdf:type owl:NamedIndividual ;
+       rdfs:comment "Bruno Pereira da Silva" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Condenação
+:Condenação rdf:type owl:NamedIndividual ,
+                     :TipoSentenca .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Deduções_Lógicas
+:Deduções_Lógicas rdf:type owl:NamedIndividual ,
+                           :TipoFundamentacao .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Equidade
+:Equidade rdf:type owl:NamedIndividual ,
+                   :TipoFundamentacao .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Fática
+:Fática rdf:type owl:NamedIndividual ,
+                 :TipoFundamentacao .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Jurandir
+:Jurandir rdf:type owl:NamedIndividual ;
+          rdfs:comment "Jurandir Conceição dos Santos Sousa" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Jurídica
+:Jurídica rdf:type owl:NamedIndividual ,
+                   :TipoFundamentacao .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Kenny
@@ -513,14 +599,30 @@ Origem de Prova"""@pt-br ;
        rdfs:comment "Kenny Aisley Rogério Vasconcellos Martins" .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/Laudo_Pericial
-:Laudo_Pericial rdf:type owl:NamedIndividual ,
-                         :Prova .
+###  http://purl.org/AertySantos/justica-ontologia/Larissa
+:Larissa rdf:type owl:NamedIndividual ;
+         rdfs:comment "Larissa Leal da Silva" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/MARIANA
+:MARIANA rdf:type owl:NamedIndividual ,
+                  :Réu ;
+         rdfs:comment "MARIANA GROSSI MARTINS PINTO" .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Nao_se_aplica
 :Nao_se_aplica rdf:type owl:NamedIndividual ,
                         :RegimeInicial .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Precedentes_e_Jurisprudência
+:Precedentes_e_Jurisprudência rdf:type owl:NamedIndividual ,
+                                       :TipoFundamentacao .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/Semiaberto
+:Semiaberto rdf:type owl:NamedIndividual ,
+                     :RegimeInicial .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Valdete
@@ -535,16 +637,287 @@ Origem de Prova"""@pt-br ;
          rdfs:comment "Walmart Brasil Ltda." .
 
 
+###  http://purl.org/AertySantos/justica-ontologia/agravante_01
+:agravante_01 rdf:type owl:NamedIndividual ,
+                       :Agravante ;
+              :descricaoAgravante "nada consta" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/agravante_03
+:agravante_03 rdf:type owl:NamedIndividual ,
+                       :Agravante ;
+              :descricaoAgravante """Reincidência:
+
+Ambos os réus já tinham condenações anteriores.
+
+Adyones possuía antecedentes criminais pelo processo nº 1500191-03.2018.8.26.0628.
+
+Desdém pela Justiça:
+
+em cumprimento de penas anteriormente impostas.
+
+Concurso de Agentes:
+
+O crime foi cometido em conjunto, evidenciando a participação de mais de um agente na ação criminosa.
+
+Circunstâncias Judiciais Desfavoráveis:
+
+As condições do crime e o histórico criminal dos réus indicavam que não mereciam benefícios como substituição da pena privativa de liberdade por restritiva de direitos.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/agravante_04
+:agravante_04 rdf:type owl:NamedIndividual ,
+                       :Agravante ;
+              :descricaoAgravante """Reincidência:
+
+Ambos os réus já tinham condenações anteriores.
+
+Jurandir possuía antecedentes pelo processo nº 1525329-71.2019.8.26.0228 e estava em liberdade provisória em outro processo por roubo, receptação e associação criminosa (processo 1518586-40.2022.8.26.0228).
+
+Desdém pela Justiça:
+
+Jurandir estava em liberdade provisória no momento do crime, demonstrando descaso com as oportunidades de ressocialização.
+
+Concurso de Agentes:
+
+O crime foi cometido em conjunto, evidenciando a participação de mais de um agente na ação criminosa.
+
+Circunstâncias Judiciais Desfavoráveis:
+
+As condições do crime e o histórico criminal dos réus indicavam que não mereciam benefícios como substituição da pena privativa de liberdade por restritiva de direitos.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/anônimo
+:anônimo rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/argumentacao_01
+:argumentacao_01 rdf:type owl:NamedIndividual ,
+                          :Argumentacao ;
+                 :temDefensoria :defensoria_01 ;
+                 :temPromotoria :promotoria_01 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/argumentacao_02
+:argumentacao_02 rdf:type owl:NamedIndividual ,
+                          :Argumentacao ;
+                 :temDefensoria :defensoria_01 ;
+                 :temPromotoria :promotoria_01 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/argumentacao_03
+:argumentacao_03 rdf:type owl:NamedIndividual ,
+                          :Argumentacao ;
+                 :temDefensoria :defensoria_03 ;
+                 :temPromotoria :promotoria_03 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/argumentacao_04
+:argumentacao_04 rdf:type owl:NamedIndividual ,
+                          :Argumentacao ;
+                 :temDefensoria :defensoria_04 ;
+                 :temPromotoria :promotoria_04 .
+
+
 ###  http://purl.org/AertySantos/justica-ontologia/artigo_155
 :artigo_155 rdf:type owl:NamedIndividual ,
                      :CodigoPenal ;
             rdfs:comment "artigo 155, § 4º, inciso II" .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/imagens_de_camera
-:imagens_de_camera rdf:type owl:NamedIndividual ,
-                            :Prova ;
-                   rdfs:comment "imagens de câmeras de segurança" .
+###  http://purl.org/AertySantos/justica-ontologia/artigo_157
+:artigo_157 rdf:type owl:NamedIndividual ,
+                     :CodigoPenal .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/atenuante_01
+:atenuante_01 rdf:type owl:NamedIndividual ,
+                       :Atenuante ;
+              :descricaoAtenuante "nada consta" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/atenuante_03
+:atenuante_03 rdf:type owl:NamedIndividual ,
+                       :Atenuante ;
+              :descricaoAtenuante """Confissão Espontânea:
+
+Adyones Porto Freire confessou a prática do delito tanto na fase policial quanto em juízo.
+
+Sua confissão foi considerada na fixação da pena.
+
+Tentativa:
+
+O crime foi considerado na forma tentada, pois, apesar de terem retirado peças das bicicletas, os réus não conseguiram se afastar do local com os objetos furtados.
+
+Isso resultou em uma redução da pena pela metade.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/atenuante_04
+:atenuante_04 rdf:type owl:NamedIndividual ,
+                       :Atenuante ;
+              :descricaoAtenuante """Tentativa:
+
+O crime foi considerado na forma tentada, pois, apesar de terem retirado peças das bicicletas, os réus não conseguiram se afastar do local com os objetos furtados.
+
+Isso resultou em uma redução da pena pela metade.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/decisao_01
+:decisao_01 rdf:type owl:NamedIndividual ,
+                     :DecisaoJudicial ;
+            :TemParte :partesProcesso_01 ;
+            :apresentaFundamentacao :fundamentacao_01 ;
+            :incluiProva :prova_01 ;
+            :orientaDecisao :dosimetria_01 ;
+            :registraSentenca :sentenca01 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/decisao_02
+:decisao_02 rdf:type owl:NamedIndividual ,
+                     :DecisaoJudicial ;
+            :TemParte :partesProcesso_03 ;
+            :apresentaFundamentacao :fundamentacao_02 ;
+            :incluiProva :prova_02 ;
+            :registraSentenca :sentenca02 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/decisao_03
+:decisao_03 rdf:type owl:NamedIndividual ,
+                     :DecisaoJudicial ;
+            :TemParte :partesProcesso_02 ;
+            :apresentaFundamentacao :fundamentacao_03 ;
+            :incluiProva :prova_03 ;
+            :orientaDecisao :dosimetria_03 ;
+            :registraSentenca :sentenca_03 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/decisao_04
+:decisao_04 rdf:type owl:NamedIndividual ,
+                     :DecisaoJudicial ;
+            :TemParte :partesProcesso_04 ;
+            :apresentaFundamentacao :fundamentacao_04 ;
+            :incluiProva :prova_04 ;
+            :orientaDecisao :dosimetria_04 ;
+            :registraSentenca :sentenca_04 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/defensoria_01
+:defensoria_01 rdf:type owl:NamedIndividual ,
+                        :Defensoria .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/defensoria_03
+:defensoria_03 rdf:type owl:NamedIndividual ,
+                        :Defensoria ;
+               :descricaoDefensoria """Confissão e Colaboração
+
+A Defesa ressaltou que o réu confessou espontaneamente a prática do crime.
+
+Argumentou que essa confissão deveria ser considerada para atenuação da pena.
+
+Crime Tentado
+
+Como os réus não conseguiram se afastar do local com os objetos furtados, a Defesa sustentou que o crime não foi consumado, cabendo a aplicação do Artigo 14, inciso II do Código Penal para redução da pena.
+
+Pedido de Substituição da Pena
+
+A Defesa argumentou que, apesar da reincidência, Adyones poderia cumprir pena alternativa, como prestação de serviços à comunidade.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/defensoria_04
+:defensoria_04 rdf:type owl:NamedIndividual ,
+                        :Defensoria ;
+               :descricaoDefensoria """Negativa de Autoria
+
+O réu afirmou que não conhecia Adyones e que não participou do furto.
+
+Alegou que correu ao ver a polícia porque temia ser preso injustamente, mas não estava envolvido no crime.
+
+Falta de Provas Contundentes
+
+A Defesa argumentou que não havia provas diretas de que Jurandir estivesse efetivamente retirando peças das bicicletas.
+
+O boletim de ocorrência e os depoimentos dos policiais não foram suficientes para comprovar sua participação ativa.
+
+Pedido de Absolvição ou Pena Alternativa
+
+Diante da fragilidade das provas, a Defesa pediu a absolvição de Jurandir.
+
+Caso fosse condenado, solicitou a substituição da pena por uma medida restritiva de direitos (como prestação de serviços comunitários).
+
+Pedido de Redução da Pena
+
+Como o crime foi tentado e não consumado, a Defesa argumentou que deveria haver redução da pena com base no Artigo 14, inciso II do Código Penal.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/dosimetria_01
+:dosimetria_01 rdf:type owl:NamedIndividual ,
+                        :Dosimetria ;
+               :consideraAgravante :agravante_01 ;
+               :consideraAtenuante :atenuante_01 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/dosimetria_03
+:dosimetria_03 rdf:type owl:NamedIndividual ,
+                        :Dosimetria ;
+               :consideraAgravante :agravante_03 ;
+               :consideraAtenuante :atenuante_03 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/dosimetria_04
+:dosimetria_04 rdf:type owl:NamedIndividual ,
+                        :Dosimetria ;
+               :consideraAgravante :agravante_04 ;
+               :consideraAtenuante :atenuante_04 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/fundamentacao_01
+:fundamentacao_01 rdf:type owl:NamedIndividual ,
+                           :Fundamentacao ;
+                  :temArgumentacao :argumentacao_01 ;
+                  :temCodigoPenal :artigo_155 ;
+                  :temJurisprudencia :jurisprudencia_01 ;
+                  :temTipoFundamentacao :Precedentes_e_Jurisprudência .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/fundamentacao_02
+:fundamentacao_02 rdf:type owl:NamedIndividual ,
+                           :Fundamentacao ;
+                  :temArgumentacao :argumentacao_02 ;
+                  :temCodigoPenal :artigo_155 ;
+                  :temJurisprudencia :jurisprudencia_01 ;
+                  :temTipoFundamentacao :Deduções_Lógicas .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/fundamentacao_03
+:fundamentacao_03 rdf:type owl:NamedIndividual ,
+                           :Fundamentacao ;
+                  :temArgumentacao :argumentacao_03 ;
+                  :temCodigoPenal :artigo_155 ;
+                  :temJurisprudencia :jurisprudencia_03 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/fundamentacao_04
+:fundamentacao_04 rdf:type owl:NamedIndividual ,
+                           :Fundamentacao ;
+                  :temArgumentacao :argumentacao_04 ;
+                  :temCodigoPenal :artigo_155 ;
+                  :temJurisprudencia :jurisprudencia_04 .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/jurisprudencia_01
+:jurisprudencia_01 rdf:type owl:NamedIndividual ,
+                            :Jurisprudencia .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/jurisprudencia_03
+:jurisprudencia_03 rdf:type owl:NamedIndividual ,
+                            :Jurisprudencia .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/jurisprudencia_04
+:jurisprudencia_04 rdf:type owl:NamedIndividual ,
+                            :Jurisprudencia .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/nada_consta
@@ -552,20 +925,164 @@ Origem de Prova"""@pt-br ;
                       :Agravante .
 
 
+###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_01
+:partesProcesso_01 rdf:type owl:NamedIndividual ,
+                            :PartesProcesso ;
+                   :incluiLesado :Walmart ;
+                   :incluiReu :Kenny ;
+                   :incluiTestemunha :Valdete .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_02
+:partesProcesso_02 rdf:type owl:NamedIndividual ,
+                            :PartesProcesso ;
+                   :incluiLesado :anônimo ;
+                   :incluiReu :Adyones ;
+                   :incluiTestemunha :Bruno ,
+                                     :Larissa .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_03
+:partesProcesso_03 rdf:type owl:NamedIndividual ,
+                            :PartesProcesso ;
+                   :incluiLesado :Walmart ;
+                   :incluiReu :MARIANA ;
+                   :incluiTestemunha :Valdete .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_04
+:partesProcesso_04 rdf:type owl:NamedIndividual ,
+                            :PartesProcesso ;
+                   :incluiLesado :anônimo ;
+                   :incluiReu :Jurandir ;
+                   :incluiTestemunha :Bruno ,
+                                     :Larissa .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/promotoria_01
+:promotoria_01 rdf:type owl:NamedIndividual ,
+                        :Promotoria .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/promotoria_03
+:promotoria_03 rdf:type owl:NamedIndividual ,
+                        :Promotoria ;
+               :descricaoPromotoria """Materialidade e Confissão do Crime
+
+Adyones confessou que retirou as peças das bicicletas.
+
+Sua confissão foi corroborada por provas como boletim de ocorrência, auto de apreensão e depoimentos.
+
+Concurso de Agentes
+
+O réu atuou em conjunto com Jurandir para cometer o furto, o que configura furto qualificado pelo envolvimento de mais de uma pessoa (Artigo 155, §4º, inciso IV do Código Penal).
+
+Antecedentes Criminais e Reincidência
+
+Adyones já havia sido condenado anteriormente pelo crime de tráfico de drogas.
+
+O histórico criminal do réu demonstraria sua reincidência e tendência ao crime, justificando um agravamento da pena.
+
+Pedido de Condenação
+
+Com base nos fatos, a Promotoria pediu a condenação de Adyones nos termos da denúncia, sem concessão de penas alternativas.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/promotoria_04
+:promotoria_04 rdf:type owl:NamedIndividual ,
+                        :Promotoria ;
+               :descricaoPromotoria """Materialidade e Autoria do Crime
+
+O crime de furto qualificado foi comprovado pelos autos do processo, incluindo boletim de ocorrência, depoimentos e imagens do local.
+
+A presença de Jurandir no momento do crime foi confirmada pelas testemunhas.
+
+Concurso de Agentes
+
+O réu agiu em conjunto com Adyones, caracterizando o crime cometido por mais de uma pessoa, conforme o Artigo 155, §4º, inciso IV do Código Penal.
+
+Fuga do Local
+
+Jurandir tentou fugir ao notar a chegada da polícia, o que indicaria sua consciência de que estava envolvido na prática criminosa.
+
+Antecedentes Criminais e Reincidência
+
+O réu já possuía condenações anteriores e, no momento do crime, estava em liberdade provisória respondendo a outro processo por roubo, receptação e associação criminosa.
+
+Esse histórico demonstraria sua inclinação à vida criminosa, justificando uma pena mais rigorosa.
+
+Pedido de Condenação
+
+Com base nas provas e nos antecedentes, a Promotoria pediu a condenação de Jurandir nos termos da denúncia, sem direito a pena alternativa.""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/prova_01
+:prova_01 rdf:type owl:NamedIndividual ,
+                   :Prova ;
+          :descricaoProva "Depoimento, Boletim de ocorrência, Imagens de camera" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/prova_02
+:prova_02 rdf:type owl:NamedIndividual ,
+                   :Prova ;
+          :descricaoProva "Depoimento,Boletim de ocorrência,Imagens de camera" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/prova_03
+:prova_03 rdf:type owl:NamedIndividual ,
+                   :Prova ;
+          :descricaoProva """Boletim de Ocorrência (fls. 06/09)
+Auto de Exibição e Apreensão (fls. 12)
+Auto de Avaliação (fls. 13)
+Imagens anexadas (fls. 27/28)
+Depoimentos de testemunhas""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/prova_04
+:prova_04 rdf:type owl:NamedIndividual ,
+                   :Prova ;
+          :descricaoProva """Boletim de Ocorrência (fls. 06/09)
+Auto de Exibição e Apreensão (fls. 12)
+Auto de Avaliação (fls. 13)
+Imagens anexadas (fls. 27/28)
+Depoimentos de testemunhas""" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/sentenca01
+:sentenca01 rdf:type owl:NamedIndividual ,
+                     :SentencaJudicial ;
+            :temRegimeInicial :Nao_se_aplica ;
+            :temResultado :Absolvição .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/sentenca02
+:sentenca02 rdf:type owl:NamedIndividual ,
+                     :SentencaJudicial ;
+            :temRegimeInicial :Nao_se_aplica ;
+            :temResultado :Condenação .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/sentenca_03
+:sentenca_03 rdf:type owl:NamedIndividual ,
+                      :SentencaJudicial ;
+             :temRegimeInicial :Semiaberto ;
+             :temResultado :Condenação ;
+             :penaFinal "1 ano, 4 meses e 10 dias de reclusão + 6 dias-multa" .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/sentenca_04
+:sentenca_04 rdf:type owl:NamedIndividual ,
+                      :SentencaJudicial ;
+             :temRegimeInicial :Semiaberto ;
+             :temResultado :Condenação ;
+             :penaFinal "1 ano, 4 meses e 24 dias de reclusão + 7 dias-multa" .
+
+
 ###  http://purl.org/AertySantos/justica-ontologia/0020041-75.2015.8.26.0482
 <http://purl.org/AertySantos/justica-ontologia/0020041-75.2015.8.26.0482> rdf:type owl:NamedIndividual ,
-                                                                                   :ProcessoJudicial ,
-                                                                                   [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :numeroProcesso ;
-                                                                                     owl:someValuesFrom xsd:string
-                                                                                   ] ;
-                                                                          :TemParte :MARIANA ,
-                                                                                    :Kenny ,
-                                                                                    :Valdete ,
-                                                                                    :Walmart ;
-                                                                          :incluiProvas :Boletim_de_ocorrência ,
-                                                                                        :imagens_de_camera ;
-                                                                          :orientaDecisao :nada_consta ;
+                                                                                   :ProcessoJudicial ;
+                                                                          :originaDecisao :decisao_01 ,
+                                                                                          :decisao_02 ;
                                                                           :assunto "Furto" ;
                                                                           :classe "Ação Penal - Procedimento Ordinário" ;
                                                                           :comarca "Presidente Prudente" ;
@@ -577,6 +1094,15 @@ Origem de Prova"""@pt-br ;
 #################################################################
 #    General axioms
 #################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Argumentacao
+                :CodigoPenal
+                :Jurisprudencia
+                :TipoFundamentacao
+              )
+] .
+
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :DecisaoJudicial
