@@ -14,14 +14,6 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/AertySantos/justica-ontologia/TemParte
-:TemParte rdf:type owl:ObjectProperty ;
-          rdfs:domain :DecisaoJudicial ;
-          rdfs:range :PartesProcesso ;
-          rdfs:comment "Indica as partes envolvidas em um processo judicial."@pt-br ;
-          rdfs:label "Parte envolvida"@pt-br .
-
-
 ###  http://purl.org/AertySantos/justica-ontologia/apresentaFundamentacao
 :apresentaFundamentacao rdf:type owl:ObjectProperty ,
                                  owl:FunctionalProperty ;
@@ -47,18 +39,10 @@
                     rdfs:label "Considera Atenuante"@pt-br .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/envolveParte
-:envolveParte rdf:type owl:ObjectProperty ;
-              rdfs:domain :ProcessoJudicial ;
-              rdfs:range :PartesProcesso ;
-              rdfs:comment "Especifica as partes impactadas por um processo judicial."@pt-br ;
-              rdfs:label "Envolve parte"@pt-br .
-
-
 ###  http://purl.org/AertySantos/justica-ontologia/incluiLesado
 :incluiLesado rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf :TemParte ;
-              rdfs:domain :PartesProcesso ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :ParteProcesso ;
               rdfs:range :Lesado ;
               rdfs:comment "Relaciona o Lesado com as Partes do Processo."@pt-br ;
               rdfs:label "Inclui Lesado"@pt-br .
@@ -74,8 +58,8 @@
 
 ###  http://purl.org/AertySantos/justica-ontologia/incluiReu
 :incluiReu rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :TemParte ;
-           rdfs:domain :PartesProcesso ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :ParteProcesso ;
            rdfs:range :Réu ;
            rdfs:comment "\"Relaciona o Réu com as Partes do Processo \""@pt-br ;
            rdfs:label "Inclui Réu"@pt-br .
@@ -83,8 +67,8 @@
 
 ###  http://purl.org/AertySantos/justica-ontologia/incluiTestemunha
 :incluiTestemunha rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :TemParte ;
-                  rdfs:domain :PartesProcesso ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :ParteProcesso ;
                   rdfs:range :Testemunha ;
                   rdfs:comment "A Testemunha é uma pessoa que faz parte das ParteProcesso e pode fornecer depoimentos ou evidências sobre o caso."@pt-br ,
                                "Inclui testemunha"@pt-br .
@@ -123,12 +107,12 @@
                  rdfs:label "Tem argumentação"@pt-br .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/temCodigoPenal
-:temCodigoPenal rdf:type owl:ObjectProperty ;
-                rdfs:domain :Fundamentacao ;
-                rdfs:range :CodigoPenal ;
-                rdfs:comment "relaciona a fundamentação com o artigo do código penal" ;
-                rdfs:label "Tem Código penal"@pt-br .
+###  http://purl.org/AertySantos/justica-ontologia/temArtigo
+:temArtigo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Fundamentacao ;
+           rdfs:range :Artigo ;
+           rdfs:comment "relaciona a fundamentação com o artigo do código penal" ;
+           rdfs:label "Tem Código penal"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/temDefensoria
@@ -142,6 +126,14 @@
 :temJurisprudencia rdf:type owl:ObjectProperty ;
                    rdfs:domain :Fundamentacao ;
                    rdfs:range :Jurisprudencia .
+
+
+###  http://purl.org/AertySantos/justica-ontologia/temParte
+:temParte rdf:type owl:ObjectProperty ;
+          rdfs:domain :DecisaoJudicial ;
+          rdfs:range :ParteProcesso ;
+          rdfs:comment "Indica as partes envolvidas em um processo judicial."@pt-br ;
+          rdfs:label "Parte envolvida"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/temPromotoria
@@ -165,8 +157,7 @@
 
 ###  http://purl.org/AertySantos/justica-ontologia/temTipoFundamentacao
 :temTipoFundamentacao rdf:type owl:ObjectProperty ;
-                      rdfs:domain :Fundamentacao ;
-                      rdfs:range :TipoFundamentacao .
+                      rdfs:domain :Fundamentacao .
 
 
 #################################################################
@@ -385,8 +376,6 @@ Origem de Prova"""@pt-br ;
 
 ###  http://purl.org/AertySantos/justica-ontologia/Agravante
 :Agravante rdf:type owl:Class ;
-           rdfs:subClassOf :Dosimetria ;
-           owl:disjointWith :Atenuante ;
            rdfs:comment "Um agravante é uma circunstância que contribui para o aumento da pena na fase de dosimetria."@pt-br ;
            rdfs:label "Agravante"@pt-br .
 
@@ -398,18 +387,16 @@ Origem de Prova"""@pt-br ;
               rdfs:label "Argumentação"@pt-br .
 
 
+###  http://purl.org/AertySantos/justica-ontologia/Artigo
+:Artigo rdf:type owl:Class ;
+        rdfs:comment "Um artigo penal é um dispositivo legal que faz parte do Código Penal e estabelece normas relacionadas a crimes, penas e medidas de segurança. Cada artigo penal define uma conduta criminosa, suas circunstâncias e as consequências legais para quem a praticar."@pt-br ;
+        rdfs:label "Artigo"@pt-br .
+
+
 ###  http://purl.org/AertySantos/justica-ontologia/Atenuante
 :Atenuante rdf:type owl:Class ;
-           rdfs:subClassOf :Dosimetria ;
            rdfs:comment "Uma atenuante é uma circunstância que contribui para a diminuição da pena na fase de dosimetria."@pt-br ;
            rdfs:label "Atenuante"@pt-br .
-
-
-###  http://purl.org/AertySantos/justica-ontologia/CodigoPenal
-:CodigoPenal rdf:type owl:Class ;
-             rdfs:subClassOf :Fundamentacao ;
-             rdfs:comment "O Código Penal é a lei que orienta a fundamentação."@pt-br ;
-             rdfs:label "Codigo penal"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/DecisaoJudicial
@@ -420,10 +407,8 @@ Origem de Prova"""@pt-br ;
 
 ###  http://purl.org/AertySantos/justica-ontologia/Defensoria
 :Defensoria rdf:type owl:Class ;
-            rdfs:subClassOf :Argumentacao ;
-            owl:disjointWith :Promotoria ;
-            rdfs:comment "Argumentaçao que a defensoria utiliza na fundamentação"@pt-br ;
-            rdfs:label "Argumentação da defensoria"@pt-br .
+            rdfs:comment "A Defensoria Pública é uma instituição essencial à justiça que presta assistência jurídica gratuita às pessoas que não têm condições financeiras de contratar um advogado."@pt-br ;
+            rdfs:label "Defensoria"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Dosimetria
@@ -434,40 +419,36 @@ Origem de Prova"""@pt-br ;
 
 ###  http://purl.org/AertySantos/justica-ontologia/Fundamentacao
 :Fundamentacao rdf:type owl:Class ;
-               rdfs:subClassOf :DecisaoJudicial ;
-               owl:disjointWith :Prova ;
                rdfs:comment "A fundamentação representa as bases legais e jurídicas utilizadas para embasar decisões judiciais."@pt-br ;
                rdfs:label "Fundamentação"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Jurisprudencia
 :Jurisprudencia rdf:type owl:Class ;
-                rdfs:subClassOf :Fundamentacao ;
                 rdfs:comment "A jurisprudência são as decisões anteriores que servem de base para a fundamentação."@pt-br ;
                 rdfs:label "Jurisprudência"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Lesado
 :Lesado rdf:type owl:Class ;
-        rdfs:subClassOf :PartesProcesso ;
         rdfs:comment "A Vítima é uma pessoa que faz parte das ParteProcesso e é aquela que sofreu o dano ou a infração."@pt-br ;
         rdfs:label "Lesado"@pt-br .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/PartesProcesso
-:PartesProcesso rdf:type owl:Class ;
-                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                  owl:onProperty :incluiLesado ;
-                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :Lesado
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :incluiReu ;
-                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :Réu
-                                ] ;
-                rdfs:comment "Partes do Processo são as pessoas envolvidas, como acusado, vítima e testemunhas."@pt-br ;
-                rdfs:label "Partes do processo"@pt-br .
+###  http://purl.org/AertySantos/justica-ontologia/ParteProcesso
+:ParteProcesso rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :incluiLesado ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Lesado
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :incluiReu ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Réu
+                               ] ;
+               rdfs:comment "Partes do Processo são as pessoas envolvidas, como acusado, vítima e testemunhas."@pt-br ;
+               rdfs:label "Partes do processo"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/ProcessoJudicial
@@ -478,30 +459,26 @@ Origem de Prova"""@pt-br ;
 
 ###  http://purl.org/AertySantos/justica-ontologia/Promotoria
 :Promotoria rdf:type owl:Class ;
-            rdfs:subClassOf :Argumentacao ;
-            rdfs:comment "argumentação qua a promotoria utiliza na fundamentação"@pt-br ;
-            rdfs:label "Argumentação da promotoria"@pt-br .
+            rdfs:comment "A Promotoria é o órgão do Ministério Público responsável por defender os interesses da sociedade, fiscalizar o cumprimento das leis e atuar na acusação de crimes. Os promotores de Justiça, que integram a Promotoria, têm o dever de zelar pela ordem jurídica e pelos direitos fundamentais dos cidadãos."@pt-br ;
+            rdfs:label "Promotoria"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Prova
 :Prova rdf:type owl:Class ;
-       rdfs:subClassOf :DecisaoJudicial ;
        rdfs:comment "A prova abrange o elemento probatório apresentado em um processo para apoiar uma decisão judicial."@pt-br ;
        rdfs:label "Prova"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/RegimeInicial
 :RegimeInicial rdf:type owl:Class ;
-               rdfs:subClassOf :SentencaJudicial ;
-               owl:disjointWith :TipoSentenca ;
                rdfs:comment "O regime inicial define a forma de cumprimento da pena estabelecida no início da execução da sentença judicial."@pt-br ;
                rdfs:label "Regime inicial"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Réu
 :Réu rdf:type owl:Class ;
-     rdfs:subClassOf :PartesProcesso ;
-     rdfs:comment "O Réu é uma pessoa que faz parte das ParteProcesso e é aquele que responde pela infração ou delito."@pt-br .
+     rdfs:comment "O Réu é uma pessoa que faz parte das ParteProcesso e é aquele que responde pela infração ou delito."@pt-br ,
+                  "Réu"@pt-br .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/SentencaJudicial
@@ -512,21 +489,12 @@ Origem de Prova"""@pt-br ;
 
 ###  http://purl.org/AertySantos/justica-ontologia/Testemunha
 :Testemunha rdf:type owl:Class ;
-            rdfs:subClassOf :PartesProcesso ;
             rdfs:comment "A Testemunha é uma pessoa que faz parte das ParteProcesso e pode fornecer depoimentos ou evidências sobre o caso."@pt-br ;
             rdfs:label "Testemunha"@pt-br .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/TipoFundamentacao
-:TipoFundamentacao rdf:type owl:Class ;
-                   rdfs:subClassOf :Fundamentacao ;
-                   rdfs:comment "O tipo de fundamentação são as regras que definem como a fundamentação deve ser feita."@pt-br ;
-                   rdfs:label "Tipo de Fundamentação"@pt-br .
-
-
 ###  http://purl.org/AertySantos/justica-ontologia/TipoSentenca
 :TipoSentenca rdf:type owl:Class ;
-              rdfs:subClassOf :SentencaJudicial ;
               rdfs:comment "Tipo de sentença refere-se à classificação da sentença judicial de acordo com sua natureza e efeito, podendo indicar se a decisão é condenatória, absolutória, cautelar, de mérito ou outras classificações, conforme o resultado do julgamento."@pt-br ;
               rdfs:label "Tipo de Sentença"@pt-br .
 
@@ -569,18 +537,15 @@ Origem de Prova"""@pt-br ;
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Deduções_Lógicas
-:Deduções_Lógicas rdf:type owl:NamedIndividual ,
-                           :TipoFundamentacao .
+:Deduções_Lógicas rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Equidade
-:Equidade rdf:type owl:NamedIndividual ,
-                   :TipoFundamentacao .
+:Equidade rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Fática
-:Fática rdf:type owl:NamedIndividual ,
-                 :TipoFundamentacao .
+:Fática rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Jurandir
@@ -589,8 +554,7 @@ Origem de Prova"""@pt-br ;
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Jurídica
-:Jurídica rdf:type owl:NamedIndividual ,
-                   :TipoFundamentacao .
+:Jurídica rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Kenny
@@ -610,14 +574,8 @@ Origem de Prova"""@pt-br ;
          rdfs:comment "MARIANA GROSSI MARTINS PINTO" .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/Nao_se_aplica
-:Nao_se_aplica rdf:type owl:NamedIndividual ,
-                        :RegimeInicial .
-
-
 ###  http://purl.org/AertySantos/justica-ontologia/Precedentes_e_Jurisprudência
-:Precedentes_e_Jurisprudência rdf:type owl:NamedIndividual ,
-                                       :TipoFundamentacao .
+:Precedentes_e_Jurisprudência rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/Semiaberto
@@ -721,13 +679,13 @@ As condições do crime e o histórico criminal dos réus indicavam que não mer
 
 ###  http://purl.org/AertySantos/justica-ontologia/artigo_155
 :artigo_155 rdf:type owl:NamedIndividual ,
-                     :CodigoPenal ;
+                     :Artigo ;
             rdfs:comment "artigo 155, § 4º, inciso II" .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/artigo_157
 :artigo_157 rdf:type owl:NamedIndividual ,
-                     :CodigoPenal .
+                     :Artigo .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/atenuante_01
@@ -765,40 +723,40 @@ Isso resultou em uma redução da pena pela metade.""" .
 ###  http://purl.org/AertySantos/justica-ontologia/decisao_01
 :decisao_01 rdf:type owl:NamedIndividual ,
                      :DecisaoJudicial ;
-            :TemParte :partesProcesso_01 ;
             :apresentaFundamentacao :fundamentacao_01 ;
             :incluiProva :prova_01 ;
             :orientaDecisao :dosimetria_01 ;
-            :registraSentenca :sentenca01 .
+            :registraSentenca :sentenca01 ;
+            :temParte :parteProcesso_01 .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/decisao_02
 :decisao_02 rdf:type owl:NamedIndividual ,
                      :DecisaoJudicial ;
-            :TemParte :partesProcesso_03 ;
             :apresentaFundamentacao :fundamentacao_02 ;
             :incluiProva :prova_02 ;
-            :registraSentenca :sentenca02 .
+            :registraSentenca :sentenca02 ;
+            :temParte :parteProcesso_03 .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/decisao_03
 :decisao_03 rdf:type owl:NamedIndividual ,
                      :DecisaoJudicial ;
-            :TemParte :partesProcesso_02 ;
             :apresentaFundamentacao :fundamentacao_03 ;
             :incluiProva :prova_03 ;
             :orientaDecisao :dosimetria_03 ;
-            :registraSentenca :sentenca_03 .
+            :registraSentenca :sentenca_03 ;
+            :temParte :parteProcesso_02 .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/decisao_04
 :decisao_04 rdf:type owl:NamedIndividual ,
                      :DecisaoJudicial ;
-            :TemParte :partesProcesso_04 ;
             :apresentaFundamentacao :fundamentacao_04 ;
             :incluiProva :prova_04 ;
             :orientaDecisao :dosimetria_04 ;
-            :registraSentenca :sentenca_04 .
+            :registraSentenca :sentenca_04 ;
+            :temParte :parteProcesso_04 .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/defensoria_01
@@ -875,7 +833,7 @@ Como o crime foi tentado e não consumado, a Defesa argumentou que deveria haver
 :fundamentacao_01 rdf:type owl:NamedIndividual ,
                            :Fundamentacao ;
                   :temArgumentacao :argumentacao_01 ;
-                  :temCodigoPenal :artigo_155 ;
+                  :temArtigo :artigo_155 ;
                   :temJurisprudencia :jurisprudencia_01 ;
                   :temTipoFundamentacao :Precedentes_e_Jurisprudência .
 
@@ -884,7 +842,7 @@ Como o crime foi tentado e não consumado, a Defesa argumentou que deveria haver
 :fundamentacao_02 rdf:type owl:NamedIndividual ,
                            :Fundamentacao ;
                   :temArgumentacao :argumentacao_02 ;
-                  :temCodigoPenal :artigo_155 ;
+                  :temArtigo :artigo_155 ;
                   :temJurisprudencia :jurisprudencia_01 ;
                   :temTipoFundamentacao :Deduções_Lógicas .
 
@@ -893,7 +851,7 @@ Como o crime foi tentado e não consumado, a Defesa argumentou que deveria haver
 :fundamentacao_03 rdf:type owl:NamedIndividual ,
                            :Fundamentacao ;
                   :temArgumentacao :argumentacao_03 ;
-                  :temCodigoPenal :artigo_155 ;
+                  :temArtigo :artigo_155 ;
                   :temJurisprudencia :jurisprudencia_03 .
 
 
@@ -901,7 +859,7 @@ Como o crime foi tentado e não consumado, a Defesa argumentou que deveria haver
 :fundamentacao_04 rdf:type owl:NamedIndividual ,
                            :Fundamentacao ;
                   :temArgumentacao :argumentacao_04 ;
-                  :temCodigoPenal :artigo_155 ;
+                  :temArtigo :artigo_155 ;
                   :temJurisprudencia :jurisprudencia_04 .
 
 
@@ -925,38 +883,38 @@ Como o crime foi tentado e não consumado, a Defesa argumentou que deveria haver
                       :Agravante .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_01
-:partesProcesso_01 rdf:type owl:NamedIndividual ,
-                            :PartesProcesso ;
-                   :incluiLesado :Walmart ;
-                   :incluiReu :Kenny ;
-                   :incluiTestemunha :Valdete .
+###  http://purl.org/AertySantos/justica-ontologia/parteProcesso_01
+:parteProcesso_01 rdf:type owl:NamedIndividual ,
+                           :ParteProcesso ;
+                  :incluiLesado :Walmart ;
+                  :incluiReu :Kenny ;
+                  :incluiTestemunha :Valdete .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_02
-:partesProcesso_02 rdf:type owl:NamedIndividual ,
-                            :PartesProcesso ;
-                   :incluiLesado :anônimo ;
-                   :incluiReu :Adyones ;
-                   :incluiTestemunha :Bruno ,
-                                     :Larissa .
+###  http://purl.org/AertySantos/justica-ontologia/parteProcesso_02
+:parteProcesso_02 rdf:type owl:NamedIndividual ,
+                           :ParteProcesso ;
+                  :incluiLesado :anônimo ;
+                  :incluiReu :Adyones ;
+                  :incluiTestemunha :Bruno ,
+                                    :Larissa .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_03
-:partesProcesso_03 rdf:type owl:NamedIndividual ,
-                            :PartesProcesso ;
-                   :incluiLesado :Walmart ;
-                   :incluiReu :MARIANA ;
-                   :incluiTestemunha :Valdete .
+###  http://purl.org/AertySantos/justica-ontologia/parteProcesso_03
+:parteProcesso_03 rdf:type owl:NamedIndividual ,
+                           :ParteProcesso ;
+                  :incluiLesado :Walmart ;
+                  :incluiReu :MARIANA ;
+                  :incluiTestemunha :Valdete .
 
 
-###  http://purl.org/AertySantos/justica-ontologia/partesProcesso_04
-:partesProcesso_04 rdf:type owl:NamedIndividual ,
-                            :PartesProcesso ;
-                   :incluiLesado :anônimo ;
-                   :incluiReu :Jurandir ;
-                   :incluiTestemunha :Bruno ,
-                                     :Larissa .
+###  http://purl.org/AertySantos/justica-ontologia/parteProcesso_04
+:parteProcesso_04 rdf:type owl:NamedIndividual ,
+                           :ParteProcesso ;
+                  :incluiLesado :anônimo ;
+                  :incluiReu :Jurandir ;
+                  :incluiTestemunha :Bruno ,
+                                    :Larissa .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/promotoria_01
@@ -1051,14 +1009,12 @@ Depoimentos de testemunhas""" .
 ###  http://purl.org/AertySantos/justica-ontologia/sentenca01
 :sentenca01 rdf:type owl:NamedIndividual ,
                      :SentencaJudicial ;
-            :temRegimeInicial :Nao_se_aplica ;
             :temResultado :Absolvição .
 
 
 ###  http://purl.org/AertySantos/justica-ontologia/sentenca02
 :sentenca02 rdf:type owl:NamedIndividual ,
                      :SentencaJudicial ;
-            :temRegimeInicial :Nao_se_aplica ;
             :temResultado :Condenação .
 
 
@@ -1096,19 +1052,22 @@ Depoimentos de testemunhas""" .
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Argumentacao
-                :CodigoPenal
-                :Jurisprudencia
-                :TipoFundamentacao
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :DecisaoJudicial
+  owl:members ( :Agravante
+                :Artigo
+                :Atenuante
+                :DecisaoJudicial
+                :Defensoria
                 :Dosimetria
+                :Fundamentacao
+                :Jurisprudencia
+                :ParteProcesso
                 :ProcessoJudicial
+                :Promotoria
+                :Prova
+                :RegimeInicial
                 :SentencaJudicial
+                :Testemunha
+                :TipoSentenca
               )
 ] .
 
