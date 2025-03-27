@@ -352,17 +352,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Dosimetria">Dosimetria</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
               </th>
               <td>
@@ -445,25 +434,34 @@ td {
                 </span>
               </td>
             </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Artigo">
+          <h3>Artigo
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/AertySantos/justica-ontologia/Artigo</code>
+              </td>
+            </tr>
             <tr>
               <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Um artigo penal é um dispositivo legal que faz parte do Código Penal e estabelece normas relacionadas a crimes, penas e medidas de segurança. Cada artigo penal define uma conduta criminosa, suas circunstâncias e as consequências legais para quem a praticar.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
               </th>
               <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#Defensoria">Argumentação da defensoria</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Promotoria">Argumentação da promotoria</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                </ul>
+                <span>
+                  <a href="#temArtigo">Tem Código penal</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
               </td>
             </tr>
           </table>
@@ -487,17 +485,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Dosimetria">Dosimetria</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
               </th>
               <td>
@@ -514,47 +501,6 @@ td {
               <td>
                 <span>
                   <a href="#consideraAtenuante">Considera Atenuante</a>
-                  <sup class="sup-op" title="OWL Object Property">op</sup>
-                </span>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Codigopenal">
-          <h3>Codigo penal
-            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://purl.org/AertySantos/justica-ontologia/CodigoPenal</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>O Código Penal é a lei que orienta a fundamentação.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Fundamentacao">Fundamentação</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#temCodigoPenal">Tem Código penal</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
                 </span>
               </td>
@@ -586,12 +532,6 @@ td {
                 <ul>
                   <li>
                     <span>
-                      <a href="#TemParte">Parte envolvida</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
                       <a href="#apresentaFundamentacao">Apresenta fundamentação</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
@@ -616,6 +556,12 @@ td {
                   </li>
                   <li>
                     <span>
+                      <a href="#temParte">Parte envolvida</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
                       <a href="#dataDecisao">Data da Decisão</a>
                       <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
                     </span>
@@ -634,31 +580,10 @@ td {
                 </span>
               </td>
             </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
-              </th>
-              <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#Fundamentacao">Fundamentação</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Prova">Prova</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                </ul>
-              </td>
-            </tr>
           </table>
         </div>
         <div class="property entity" id="Defensoria">
-          <h3>Argumentação da defensoria
+          <h3>Defensoria
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
           <table>
@@ -672,18 +597,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>Argumentaçao que a defensoria utiliza na fundamentação</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Argumentao">Argumentação</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
+              <td><p>A Defensoria Pública é uma instituição essencial à justiça que presta assistência jurídica gratuita às pessoas que não têm condições financeiras de contratar um advogado.</p></td>
             </tr>
             <tr>
               <th>
@@ -770,27 +684,6 @@ td {
                 </span>
               </td>
             </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
-              </th>
-              <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#Agravante">Agravante</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Atenuante">Atenuante</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                </ul>
-              </td>
-            </tr>
           </table>
         </div>
         <div class="property entity" id="Fundamentacao">
@@ -812,17 +705,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Decisojudicial">Decisão judicial</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
               </th>
               <td>
@@ -835,7 +717,7 @@ td {
                   </li>
                   <li>
                     <span>
-                      <a href="#temCodigoPenal">Tem Código penal</a>
+                      <a href="#temArtigo">Tem Código penal</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
                   </li>
@@ -870,37 +752,15 @@ td {
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
               </th>
               <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#Argumentao">Argumentação</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Codigopenal">Codigo penal</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Jurisprudencia">Jurisprudência</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#TipoFundamentacao">Tipo de Fundamentação</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                </ul>
+                <span>
+                  <a href="#Argumentao">Argumentação</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
               </td>
             </tr>
           </table>
         </div>
-        <div class="property entity" id="Jurisprudencia">
+        <div class="property entity" id="Jurisprudncia">
           <h3>Jurisprudência
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
@@ -916,17 +776,6 @@ td {
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
               <td><p>A jurisprudência são as decisões anteriores que servem de base para a fundamentação.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Fundamentacao">Fundamentação</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
             </tr>
             <tr>
               <th>
@@ -960,17 +809,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
               </th>
               <td>
@@ -993,7 +831,7 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="PartesProcesso">
+        <div class="property entity" id="Partesdoprocesso">
           <h3>Partes do processo
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
@@ -1001,7 +839,7 @@ td {
             <tr>
               <th>IRI</th>
               <td>
-                <code>http://purl.org/AertySantos/justica-ontologia/PartesProcesso</code>
+                <code>http://purl.org/AertySantos/justica-ontologia/ParteProcesso</code>
               </td>
             </tr>
             <tr>
@@ -1042,20 +880,10 @@ td {
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
               </th>
               <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#TemParte">Parte envolvida</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#envolveParte">Envolve parte</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                </ul>
+                <span>
+                  <a href="#temParte">Parte envolvida</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
               </td>
             </tr>
             <tr>
@@ -1095,33 +923,6 @@ td {
                 </ul>
               </td>
             </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
-              </th>
-              <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#Lesado">Lesado</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Réu">Réu</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#Testemunha">Testemunha</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                </ul>
-              </td>
-            </tr>
           </table>
         </div>
         <div class="property entity" id="ProcessoJudicial">
@@ -1147,12 +948,6 @@ td {
               </th>
               <td>
                 <ul>
-                  <li>
-                    <span>
-                      <a href="#envolveParte">Envolve parte</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
                   <li>
                     <span>
                       <a href="#originaDecisao">Origina decisão</a>
@@ -1207,7 +1002,7 @@ td {
           </table>
         </div>
         <div class="property entity" id="Promotoria">
-          <h3>Argumentação da promotoria
+          <h3>Promotoria
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
           <table>
@@ -1221,18 +1016,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>argumentação qua a promotoria utiliza na fundamentação</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Argumentao">Argumentação</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
+              <td><p>A Promotoria é o órgão do Ministério Público responsável por defender os interesses da sociedade, fiscalizar o cumprimento das leis e atuar na acusação de crimes. Os promotores de Justiça, que integram a Promotoria, têm o dever de zelar pela ordem jurídica e pelos direitos fundamentais dos cidadãos.</p></td>
             </tr>
             <tr>
               <th>
@@ -1274,17 +1058,6 @@ td {
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
               <td><p>A prova abrange o elemento probatório apresentado em um processo para apoiar uma decisão judicial.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Decisojudicial">Decisão judicial</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
             </tr>
             <tr>
               <th>
@@ -1351,17 +1124,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
               </th>
               <td>
@@ -1388,17 +1150,11 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>O Réu é uma pessoa que faz parte das ParteProcesso e é aquele que responde pela infração ou delito.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
               <td>
-                <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
+                <ul>
+                  <li><p>O Réu é uma pessoa que faz parte das ParteProcesso e é aquele que responde pela infração ou delito.</p></li>
+                  <li><p>Réu</p></li>
+                </ul>
               </td>
             </tr>
             <tr>
@@ -1425,7 +1181,7 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="SentencaJudicial">
+        <div class="property entity" id="SentenaJudicial">
           <h3>Sentença Judicial
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
@@ -1504,27 +1260,6 @@ td {
                 </span>
               </td>
             </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
-              </th>
-              <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#Regimeinicial">Regime inicial</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#TipoSentenca">Tipo de Sentença</a>
-                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                    </span>
-                  </li>
-                </ul>
-              </td>
-            </tr>
           </table>
         </div>
         <div class="property entity" id="Testemunha">
@@ -1543,17 +1278,6 @@ td {
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
               <td><p>A Testemunha é uma pessoa que faz parte das ParteProcesso e pode fornecer depoimentos ou evidências sobre o caso.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
             </tr>
             <tr>
               <th>
@@ -1579,48 +1303,7 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="TipoFundamentacao">
-          <h3>Tipo de Fundamentação
-            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://purl.org/AertySantos/justica-ontologia/TipoFundamentacao</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>O tipo de fundamentação são as regras que definem como a fundamentação deve ser feita.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Fundamentacao">Fundamentação</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#temTipoFundamentacao">temTipoFundamentacao</a>
-                  <sup class="sup-op" title="OWL Object Property">op</sup>
-                </span>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="TipoSentenca">
+        <div class="property entity" id="TipodeSentena">
           <h3>Tipo de Sentença
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
@@ -1639,17 +1322,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
               </th>
               <td>
@@ -1664,74 +1336,6 @@ td {
       </div>
       <div class="section" id="objectproperties">
         <h2>Object Properties</h2>
-        <div class="property entity" id="TemParte">
-          <h3>Parte envolvida
-            <sup class="sup-op" title="OWL Object Property">op</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://purl.org/AertySantos/justica-ontologia/TemParte</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Indica as partes envolvidas em um processo judicial.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superPropertyOf" title="Inverse of RDFS' subPropertyOf. Defined in Ontology Documentation Profile">Super Property Of</a>
-              </th>
-              <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#incluiLesado">Inclui Lesado</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#incluiReu">Inclui Réu</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#incluiTestemunha">incluiTestemunha</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#Decisojudicial">Decisão judicial</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-          </table>
-        </div>
         <div class="property entity" id="apresentaFundamentacao">
           <h3>Apresenta fundamentação
             <sup class="sup-op" title="OWL Object Property">op</sup>
@@ -1855,47 +1459,6 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="envolveParte">
-          <h3>Envolve parte
-            <sup class="sup-op" title="OWL Object Property">op</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://purl.org/AertySantos/justica-ontologia/envolveParte</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Especifica as partes impactadas por um processo judicial.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#ProcessoJudicial">Processo Judicial</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-          </table>
-        </div>
         <div class="property entity" id="incluiLesado">
           <h3>Inclui Lesado
             <sup class="sup-op" title="OWL Object Property">op</sup>
@@ -1919,7 +1482,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#TemParte">Parte envolvida</a>
+                  <a href="http://www.w3.org/2002/07/owl#topObjectProperty">topObjectProperty</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
                 </span>
               </td>
@@ -1930,7 +1493,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
+                  <a href="#Partesdoprocesso">Partes do processo</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2012,7 +1575,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#TemParte">Parte envolvida</a>
+                  <a href="http://www.w3.org/2002/07/owl#topObjectProperty">topObjectProperty</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
                 </span>
               </td>
@@ -2023,7 +1586,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
+                  <a href="#Partesdoprocesso">Partes do processo</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2069,7 +1632,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#TemParte">Parte envolvida</a>
+                  <a href="http://www.w3.org/2002/07/owl#topObjectProperty">topObjectProperty</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
                 </span>
               </td>
@@ -2080,7 +1643,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#PartesProcesso">Partes do processo</a>
+                  <a href="#Partesdoprocesso">Partes do processo</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2214,7 +1777,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2262,7 +1825,7 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="temCodigoPenal">
+        <div class="property entity" id="temArtigo">
           <h3>Tem Código penal
             <sup class="sup-op" title="OWL Object Property">op</sup>
           </h3>
@@ -2270,7 +1833,7 @@ td {
             <tr>
               <th>IRI</th>
               <td>
-                <code>http://purl.org/AertySantos/justica-ontologia/temCodigoPenal</code>
+                <code>http://purl.org/AertySantos/justica-ontologia/temArtigo</code>
               </td>
             </tr>
             <tr>
@@ -2296,7 +1859,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#Codigopenal">Codigo penal</a>
+                  <a href="#Artigo">Artigo</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2342,7 +1905,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#Defensoria">Argumentação da defensoria</a>
+                  <a href="#Defensoria">Defensoria</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2377,7 +1940,48 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#Jurisprudencia">Jurisprudência</a>
+                  <a href="#Jurisprudncia">Jurisprudência</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="temParte">
+          <h3>Parte envolvida
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/AertySantos/justica-ontologia/temParte</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Indica as partes envolvidas em um processo judicial.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Decisojudicial">Decisão judicial</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Partesdoprocesso">Partes do processo</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2412,7 +2016,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#Promotoria">Argumentação da promotoria</a>
+                  <a href="#Promotoria">Promotoria</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2436,7 +2040,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2482,7 +2086,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2493,7 +2097,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#TipoSentenca">Tipo de Sentença</a>
+                  <a href="#TipodeSentena">Tipo de Sentença</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2518,17 +2122,6 @@ td {
               <td>
                 <span>
                   <a href="#Fundamentacao">Fundamentação</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#TipoFundamentacao">Tipo de Fundamentação</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2561,7 +2154,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2713,7 +2306,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2984,7 +2577,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#Defensoria">Argumentação da defensoria</a>
+                  <a href="#Defensoria">Defensoria</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -3016,7 +2609,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#Promotoria">Argumentação da promotoria</a>
+                  <a href="#Promotoria">Promotoria</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -3141,7 +2734,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -3179,7 +2772,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -3462,7 +3055,7 @@ Origem de Prova</p></td>
               </th>
               <td>
                 <span>
-                  <a href="#SentencaJudicial">Sentença Judicial</a>
+                  <a href="#SentenaJudicial">Sentença Judicial</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -3678,16 +3271,16 @@ Origem de Prova</p></td>
               <a href="#Argumentao">Argumentação</a>
             </li>
             <li>
-              <a href="#Atenuante">Atenuante</a>
+              <a href="#Artigo">Artigo</a>
             </li>
             <li>
-              <a href="#Codigopenal">Codigo penal</a>
+              <a href="#Atenuante">Atenuante</a>
             </li>
             <li>
               <a href="#Decisojudicial">Decisão judicial</a>
             </li>
             <li>
-              <a href="#Defensoria">Argumentação da defensoria</a>
+              <a href="#Defensoria">Defensoria</a>
             </li>
             <li>
               <a href="#Dosimetria">Dosimetria</a>
@@ -3696,19 +3289,19 @@ Origem de Prova</p></td>
               <a href="#Fundamentacao">Fundamentação</a>
             </li>
             <li>
-              <a href="#Jurisprudencia">Jurisprudência</a>
+              <a href="#Jurisprudncia">Jurisprudência</a>
             </li>
             <li>
               <a href="#Lesado">Lesado</a>
             </li>
             <li>
-              <a href="#PartesProcesso">Partes do processo</a>
+              <a href="#Partesdoprocesso">Partes do processo</a>
             </li>
             <li>
               <a href="#ProcessoJudicial">Processo Judicial</a>
             </li>
             <li>
-              <a href="#Promotoria">Argumentação da promotoria</a>
+              <a href="#Promotoria">Promotoria</a>
             </li>
             <li>
               <a href="#Prova">Prova</a>
@@ -3720,16 +3313,13 @@ Origem de Prova</p></td>
               <a href="#Réu">Réu</a>
             </li>
             <li>
-              <a href="#SentencaJudicial">Sentença Judicial</a>
+              <a href="#SentenaJudicial">Sentença Judicial</a>
             </li>
             <li>
               <a href="#Testemunha">Testemunha</a>
             </li>
             <li>
-              <a href="#TipoFundamentacao">Tipo de Fundamentação</a>
-            </li>
-            <li>
-              <a href="#TipoSentenca">Tipo de Sentença</a>
+              <a href="#TipodeSentena">Tipo de Sentença</a>
             </li>
           </ul>
         </li>
@@ -3739,9 +3329,6 @@ Origem de Prova</p></td>
           </h4>
           <ul class="second">
             <li>
-              <a href="#TemParte">Parte envolvida</a>
-            </li>
-            <li>
               <a href="#apresentaFundamentacao">Apresenta fundamentação</a>
             </li>
             <li>
@@ -3749,9 +3336,6 @@ Origem de Prova</p></td>
             </li>
             <li>
               <a href="#consideraAtenuante">Considera Atenuante</a>
-            </li>
-            <li>
-              <a href="#envolveParte">Envolve parte</a>
             </li>
             <li>
               <a href="#incluiLesado">Inclui Lesado</a>
@@ -3778,13 +3362,16 @@ Origem de Prova</p></td>
               <a href="#temArgumentacao">Tem argumentação</a>
             </li>
             <li>
-              <a href="#temCodigoPenal">Tem Código penal</a>
+              <a href="#temArtigo">Tem Código penal</a>
             </li>
             <li>
               <a href="#temDefensoria">tem defensoria</a>
             </li>
             <li>
               <a href="#temJurisprudencia">tem jurisprudencia</a>
+            </li>
+            <li>
+              <a href="#temParte">Parte envolvida</a>
             </li>
             <li>
               <a href="#temPromotoria">tem promotoria</a>
